@@ -2734,7 +2734,7 @@ for (;;)
             return PCRE_ERROR_RECURSELOOP;
 
         /* Remember this recursion and where we started it so as to
-        catch infinite loops. */
+        catch  loops. */
 
         new_recursive.group_num = recno;
         new_recursive.subject_position = ptr;
@@ -2922,7 +2922,7 @@ for (;;)
 
           /* If we have matched an empty string, add the next state at the
           current character pointer. This is important so that the duplicate
-          checking kicks in, which is what breaks infinite loops that match an
+          checking kicks in, which is what breaks  loops that match an
           empty string. */
 
           if (charcount == 0)

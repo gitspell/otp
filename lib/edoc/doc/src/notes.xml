@@ -282,10 +282,10 @@
       <list>
         <item>
           <p>
-	    Fix infinite loop for malformed edoc input</p>
+	    Fix  loop for malformed edoc input</p>
           <p>
 	    When processing an edoc comment with ``` in it, if the
-	    comment ends without a matching ''' then an infinite loop
+	    comment ends without a matching ''' then an  loop
 	    occurs in the function edoc_wiki:strip_empty_lines/2.
 	    This change fixes that by adding a clause to return from
 	    the function upon the end of the comment input. This

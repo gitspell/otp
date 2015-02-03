@@ -934,13 +934,13 @@ clean_location(Term) -> Term.
 concurrency(_Config) ->
     N = erlang:system_info(schedulers),
 
-    %% Spawn 2*N processes that spin in a tight infinite loop,
+    %% Spawn 2*N processes that spin in a tight  loop,
     %% and one process that will turn on and off local call
-    %% trace on the infinite_loop/0 function. We expect the
+    %% trace on the _loop/0 function. We expect the
     %% emulator to crash if there is a memory barrier bug or
     %% if an aligned word-sized write is not atomic.
 
-    Ps0 = [spawn_monitor(fun() -> infinite_loop() end) ||
+    Ps0 = [spawn_monitor(fun() -> _loop() end) ||
 	      _ <- lists:seq(1, 2*N)],
     OnAndOff = fun() -> concurrency_on_and_off() end,
     Ps1 = [spawn_monitor(OnAndOff)|Ps0],
@@ -956,16 +956,16 @@ concurrency(_Config) ->
     [receive
 	 {'DOWN',Ref,process,Pid,killed} -> ok
      end || {Pid,Ref} <- Ps],
-    erlang:trace_pattern({?MODULE,infinite_loop,0}, false, [local]),
+    erlang:trace_pattern({?MODULE,_loop,0}, false, [local]),
     ok.
 
 concurrency_on_and_off() ->
-    1 = erlang:trace_pattern({?MODULE,infinite_loop,0}, true, [local]),
-    1 = erlang:trace_pattern({?MODULE,infinite_loop,0}, false, [local]),
+    1 = erlang:trace_pattern({?MODULE,_loop,0}, true, [local]),
+    1 = erlang:trace_pattern({?MODULE,_loop,0}, false, [local]),
     concurrency_on_and_off().
 
-infinite_loop() ->
-    infinite_loop().
+_loop() ->
+    _loop().
 
 %%% Tracee target functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%

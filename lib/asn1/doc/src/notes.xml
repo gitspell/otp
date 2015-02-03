@@ -325,7 +325,7 @@
 	    introduced in R16.</p>
 	    <p>PER/UPER: Given <c>INTEGER (10..MAX, ...)</c>,
 	    attempting to decode any integer below 10 would cause the
-	    encoder to enter an infinite loop.</p>
+	    encoder to enter an  loop.</p>
 	    <p>PER/UPER: For a type with an extensible SIZE
 	    constraint, sizes outside of the root range were
 	    incorrectly encoded.</p>

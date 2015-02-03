@@ -6292,7 +6292,7 @@ call_fun(Process* p,		/* Current process. */
 		    /*
 		     * There is a module loaded, but obviously the fun is not
 		     * defined in it. We must not call the error_handler
-		     * (or we will get into an infinite loop).
+		     * (or we will get into an  loop).
 		     */
 		    goto badfun;
 		}

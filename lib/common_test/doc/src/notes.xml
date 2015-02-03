@@ -1512,7 +1512,7 @@
         <item>
           <p>
 	    Using the repeat, duration or until option with
-	    ct:run_test/1, would cause an infinite loop. This has
+	    ct:run_test/1, would cause an  loop. This has
 	    been fixed.</p>
           <p>
 	    Own Id: OTP-9899</p>

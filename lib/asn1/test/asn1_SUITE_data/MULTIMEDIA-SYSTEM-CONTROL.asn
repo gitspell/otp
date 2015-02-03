@@ -1463,7 +1463,7 @@ H223AnnexCArqParameters	::=SEQUENCE
 	numberOfRetransmissions	CHOICE
 	{
 		finite	INTEGER (0..16),
-		infinite	NULL,
+			NULL,
 		...
 	},
 	sendBufferSize	INTEGER (0..16777215),	-- units octets

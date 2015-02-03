@@ -823,7 +823,7 @@ up space on the stack. See also MATCH_CONDASSERT below.
 
 When MATCH_CBEGROUP is set, add the current subject pointer to the chain of
 such remembered pointers, to be checked when we hit the closing ket, in order
-to break infinite loops that match no characters. When match() is called in
+to break  loops that match no characters. When match() is called in
 other circumstances, don't add to the chain. The MATCH_CBEGROUP feature must
 NOT be used with tail recursion, because the memory block that is used is on
 the stack, so a new one may be required for each match(). */
@@ -1004,7 +1004,7 @@ for (;;)
 
     /* For a non-repeating ket, just continue at this level. This also
     happens for a repeating ket if no characters were matched in the group.
-    This is the forcible breaking of infinite loops as implemented in Perl
+    This is the forcible breaking of  loops as implemented in Perl
     5.005. */
 
     if (*ecode == OP_KET || eptr == saved_eptr)
@@ -2035,7 +2035,7 @@ for (;;)
     break;
 
     /* BRAZERO, BRAMINZERO and SKIPZERO occur just before a bracket group,
-    indicating that it may occur zero times. It may repeat infinitely, or not
+    indicating that it may occur zero times. It may repeat ly, or not
     at all - i.e. it could be ()* or ()? or even (){0} in the pattern. Brackets
     with fixed upper repeat limits are compiled as a number of copies, with the
     optional ones preceded by BRAZERO or BRAMINZERO. */
@@ -2080,7 +2080,7 @@ for (;;)
     prev = ecode - GET(ecode, 1);
 
     /* If this was a group that remembered the subject start, in order to break
-    infinite repeats of empty string matches, retrieve the subject start from
+     repeats of empty string matches, retrieve the subject start from
     the chain. Otherwise, set it NULL. */
 
     if (*prev >= OP_SBRA || *prev == OP_ONCE)
@@ -2165,7 +2165,7 @@ for (;;)
 
     /* For an ordinary non-repeating ket, just continue at this level. This
     also happens for a repeating ket if no characters were matched in the
-    group. This is the forcible breaking of infinite loops as implemented in
+    group. This is the forcible breaking of  loops as implemented in
     Perl 5.005. For a non-repeating atomic group that includes captures,
     establish a backup point by processing the rest of the pattern at a lower
     level. If this results in a NOMATCH return, pass MATCH_ONCE back to the
@@ -2847,7 +2847,7 @@ for (;;)
     to that for character classes, but repeated for efficiency. Then obey
     similar code to character type repeats - written out again for speed.
     However, if the referenced string is the empty string, always treat
-    it as matched, any number of times (otherwise there could be infinite
+    it as matched, any number of times (otherwise there could be 
     loops). */
 
     case OP_REF:

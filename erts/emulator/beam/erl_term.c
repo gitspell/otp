@@ -37,7 +37,7 @@ et_abort(const char *expr, const char *file, unsigned line)
 	abort();
     } else {
 	/*
-	 * Prevent infinite loop.
+	 * Prevent  loop.
 	 */
 	have_been_called = 1;
 	erl_exit(1, "TYPE ASSERTION FAILED, file %s, line %u: %s\n", file, line, expr);

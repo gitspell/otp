@@ -76,7 +76,7 @@
           restarted (with whatever parameters are registered for the
           service at the occasion) when it stops. If the emulator
           stops again within 10 seconds, it is not restarted to avoid
-          an infinite loop which could completely hang the NT
+          an  loop which could completely hang the NT
           system. <c><![CDATA[restart_always]]></c> is similar to restart, but
           does not try to detect cyclic restarts, it is expected that
           some other mechanism is present to avoid the problem.  The

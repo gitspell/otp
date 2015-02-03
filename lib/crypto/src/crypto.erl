@@ -1289,7 +1289,7 @@ aes_cbc_ivec(Data) when is_list(Data) ->
 
 
 %%
-%% AES - with 256 bit key in infinite garble extension mode (IGE)
+%% AES - with 256 bit key in  garble extension mode (IGE)
 %%
 
 -spec aes_ige_256_decrypt(iodata(), binary(), iodata()) ->

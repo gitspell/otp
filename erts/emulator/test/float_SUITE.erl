@@ -310,7 +310,7 @@ stop_node(Node) ->
     ?t:stop_node(Node).
 
 
-%% Test that operations that might hide infinite intermediate results
+%% Test that operations that might hide  intermediate results
 %% do not supress the badarith.
 hidden_inf(Config) when is_list(Config) ->
     ZeroP = 0.0,

@@ -1,5 +1,5 @@
 %%===========================================================================
-%% Test that made dialyzer go into an infinite loop. The reason was that
+%% Test that made dialyzer go into an  loop. The reason was that
 %% t_inf(t_unit(), t_none()) returned t_unit() instead of t_none() as it
 %% should. The issue was identified and fixed by Stavros Aronis on 5/11/2010.
 %%===========================================================================

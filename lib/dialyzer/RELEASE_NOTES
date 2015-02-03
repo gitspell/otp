@@ -22,7 +22,7 @@ Version 2.4.0 (in Erlang/OTP R14B01)
    than one PLT) and there must not include files with module name clashes.
  - Strengthened and streamlined hard-coded type information for some BIFs
    and key library functions.
- - Fixed pretty rare infinite loop when refining the types of an SCC whose
+ - Fixed pretty rare  loop when refining the types of an SCC whose
    functions all returned none() (thanks to Stavros Aronis).
  - Fixed pretty rare crash when taking the infimum of two tuple_sets.
  - Fixed pretty rare crash when using parameterized types containing unbound
@@ -115,7 +115,7 @@ Version 2.0.0 (in Erlang/OTP R13B02)
 
 Version 1.9.2 (in Erlang/OTP R13B01)
 ------------------------------------
- - Fixed problem with type inference going into an infinite loop when
+ - Fixed problem with type inference going into an  loop when
    analyzing a strongly connected component of functions that do not
    return but also contain an erroneous call which makes them fail and
    be assigned the type none() instead of the type unit().

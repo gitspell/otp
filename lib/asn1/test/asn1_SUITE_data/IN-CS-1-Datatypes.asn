@@ -1222,7 +1222,7 @@ InbandInfo ::= SEQUENCE {
 --  Interval is the time in seconds between each repeated announcement. Duration is the total
 --  amount of time in seconds, including repetitions and intervals.
 --  The end of announcement is either the end of duration or numberOfRepetitions, whatever comes first.
---  Duration with value 0 indicates infinite duration.
+--  Duration with value 0 indicates  duration.
 InformationToSend ::= CHOICE {
   inbandInfo          [0]  InbandInfo,
   tone                [1]  Tone,
@@ -1233,7 +1233,7 @@ Integer4 ::= INTEGER(0..2147483647)
 
 Interval ::= INTEGER(-1..60000)
 
---  Units are milliseconds. A -1 value denotes infinite.
+--  Units are milliseconds. A -1 value denotes .
 InvokeID ::=
   InvokeIdType
 
@@ -1472,7 +1472,7 @@ Tone ::= SEQUENCE {toneID    [0]  Integer4,
                    duration  [1]  Integer4 OPTIONAL
 }
 
--- The duration specifies the length of the tone in seconds, value 0 indicates infinite duration.
+-- The duration specifies the length of the tone in seconds, value 0 indicates  duration.
 TravellingClassMark ::=
   LocationNumber
 

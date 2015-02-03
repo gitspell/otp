@@ -1,10 +1,10 @@
 %%=====================================================================
 %% Program with an erroneous type declaration that caused dialyzer to
-%% go into an infinite loop. There are some comments that explain the
+%% go into an  loop. There are some comments that explain the
 %% symptoms and the culprit: the return of test_fun() is erroneous and
 %% its type should read
 %%	fun((config()) -> test_rep() | [test_rep()])
-%% instead. But this should not throw dialyzer into an infinite loop.
+%% instead. But this should not throw dialyzer into an  loop.
 %% This concerned dialyzer in R14B02 (and probably prior).
 %%=====================================================================
 -module(common_eunit).
@@ -24,10 +24,10 @@
 -type control()   :: tuple() | atom().
 
 %% The combination of the following type and the (erroneous) spec for
-%% expand_cases/2 is the reason for the infinite loop in dialyzer.
+%% expand_cases/2 is the reason for the  loop in dialyzer.
 -type test_fun()  :: fun((config()) -> test_rep()).
 
-%% If one comments out this spec the infinite loop disappears.
+%% If one comments out this spec the  loop disappears.
 -spec expand_cases(atom(), test_name() | [test_name()]) -> test_fun().
 expand_cases(Module, Cases) ->
     if is_list(Cases) ->

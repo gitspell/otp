@@ -30,6 +30,65 @@
   </header>
   <p>This document describes the changes made to the ERTS application.</p>
 
+<section><title>Erts 6.3.1</title>
+
+    <section><title>Fixed Bugs and Malfunctions</title>
+      <list>
+        <item>
+          <p>
+	    Fix getifaddrs realloc pointer error</p>
+          <p>
+	    When a buffer was exhausted and subsequently reallocated,
+	    we could get an unsafe pointer pointing to faulty memory.</p>
+          <p>
+	    For this to occur we would need to have a large number of
+	    interfaces and a reallocation of memory to a lower
+	    addresses.</p>
+          <p>
+	    The symptom would be garbage returned from
+	    erlang:port_control(Port, 25, [])
+	    (prim_inet:getifaddrs(Port) resulting in a badarg) or a
+	    segmentation fault.</p>
+          <p>
+	    Own Id: OTP-12445</p>
+        </item>
+        <item>
+          <p>
+	    Don't close all file descriptors twice in child_setup</p>
+          <p>
+	    The commit c2b4eab25c907f453a394d382c04cd04e6c06b49
+	    introduced an error in which child_setup erroneously
+	    tried to close all file descriptors twice.</p>
+          <p>
+	    Use closefrom() if available when closing all file
+	    descriptors.</p>
+          <p>
+	    The function closefrom() was only used in the vfork()
+	    case before but is now also used in the fork() case if
+	    available.</p>
+          <p>
+	    Own Id: OTP-12446</p>
+        </item>
+        <item>
+          <p>
+	    During a crashdump all file descriptors are closed to
+	    ensure the closing of the epmd port and to reserve a file
+	    descriptor for the crashdump file.</p>
+          <p>
+	    If a driver (third party library) cannot handle closing
+	    of sockets this could result in a segmentation fault in
+	    which case a crashdump would not be produced. This is now
+	    fixed by only closing inets sockets via an emergency
+	    close callback to the driver and thus closing the epmd
+	    socket.</p>
+          <p>
+	    Own Id: OTP-12447</p>
+        </item>
+      </list>
+    </section>
+
+</section>
+
 <section><title>Erts 6.3</title>
 
     <section><title>Fixed Bugs and Malfunctions</title>
@@ -2749,7 +2808,7 @@
           <p>
 	    Certain linux kernels, most notably in redhat and CentOS
 	    distribution, had a bug in writev which generated an
-	    infinite loop in the tcp code of the VM. The bug is now
+	     loop in the tcp code of the VM. The bug is now
 	    worked around.</p>
           <p>
 	    Own Id: OTP-10747</p>
@@ -5009,7 +5068,7 @@
           <p>
 	    file: fix hang reading compressed files</p>
           <p>
-	    The gzio driver goes into an infinite loop when reading
+	    The gzio driver goes into an  loop when reading
 	    past the end of a compressed file. Reported-By: Alex
 	    Morarash (Thanks to Michael Santos)</p>
           <p>
@@ -5879,7 +5938,7 @@
         <item>
           <p>
 	    ETS ordered_set containing <c>[]</c> as key could cause
-	    strange thing to happen, like an infinite hanging
+	    strange thing to happen, like an  hanging
 	    <c>ets:select</c>.</p>
           <p>
 	    Own Id: OTP-8732</p>
@@ -7276,7 +7335,7 @@
 	    Using certain firewalls (i.e. MS IAS Client and certain
 	    versions of COMODO) could expose an undocumented
 	    behaviour in the Win32 socket interface causing the name
-	    resolution calls to hang infinitely. This is now worked
+	    resolution calls to hang ly. This is now worked
 	    around by adding possibilities for port programs under
 	    Windows to use overlapped I/O on their standard
 	    input/output file handles.</p>
@@ -7593,7 +7652,7 @@
         <item>
           <p>
 	    A call to <c>erlang:system_info(schedulers_online)</c>
-	    could end up in an infinite loop. This happened if the
+	    could end up in an  loop. This happened if the
 	    amount of schedulers was larger than one, the amount of
 	    schedulers online was one, and someone was blocking
 	    multi-scheduling.</p>

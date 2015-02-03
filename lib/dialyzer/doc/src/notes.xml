@@ -695,7 +695,7 @@
           <p>
 	    Minor fix in dead code</p>
           <p>
-	    Fix infinite loop in dataflow</p>
+	    Fix  loop in dataflow</p>
           <p>
 	    Update r9c/{inets,mnesia} results in dialyzer's test
 	    suite</p>
@@ -877,7 +877,7 @@
     <section><title>Fixed Bugs and Malfunctions</title>
       <list>
         <item>
-	    <p> - Fixed pretty rare infinite loop when refining the
+	    <p> - Fixed pretty rare  loop when refining the
 	    types of an SCC whose functions all returned none()
 	    (thanks to Stavros Aronis). </p><p> - Fixed pretty rare
 	    crash when taking the infimum of two tuple_sets. </p>
@@ -1086,7 +1086,7 @@
       <list>
         <item>
 	    <p>Fixed problem with type inference going into an
-	    infinite loop when analyzing a strongly connected
+	     loop when analyzing a strongly connected
 	    component of functions that do not return but also
 	    contain an erroneous call which makes them fail and be
 	    assigned the type none() instead of the type unit().</p>

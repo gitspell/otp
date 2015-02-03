@@ -2477,7 +2477,7 @@ typedef struct dfa_recursion_info {
 
 /* Structure for building a chain of data for holding the values of the subject
 pointer at the start of each subpattern, so as to detect when an empty string
-has been matched by a subpattern - to break infinite loops; used by
+has been matched by a subpattern - to break  loops; used by
 pcre_exec(). */
 
 typedef struct eptrblock {

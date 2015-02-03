@@ -262,7 +262,7 @@ backward([{test,is_eq_exact,Fail,[Dst,{integer,Arity}]}=I|
 	    %% (probably cannot not happen in practice) or the arity
 	    %% does not fit in 32 bits (the loader will fail to load
 	    %% the module). We must move the first instruction to the
-	    %% accumulator to avoid an infinite loop.
+	    %% accumulator to avoid an  loop.
 	    backward(Is0, D, [I|Acc]);
 	true ->
 	    %% Safe.

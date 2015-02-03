@@ -1,4 +1,4 @@
-%% Dialyzer couldn't infer that monitor_diskspace would go in an infinite loop
+%% Dialyzer couldn't infer that monitor_diskspace would go in an  loop
 %% instead of crashing due to the existence of list comprehensions that have a
 %% normal success typing. These were added to the monitor_diskspace's SCC and
 %% dialyzer_typesig didn't try to assign unit() to monitor_diskspace, as it

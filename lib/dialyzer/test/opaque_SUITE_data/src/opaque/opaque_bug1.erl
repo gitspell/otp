@@ -1,5 +1,5 @@
 %%---------------------------------------------------------------------
-%% A test for which the analysis went into an infinite loop due to
+%% A test for which the analysis went into an  loop due to
 %% specialization using structured type instead of the opaque one.
 %%---------------------------------------------------------------------
 

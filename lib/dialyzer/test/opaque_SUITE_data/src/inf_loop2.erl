@@ -4,11 +4,11 @@
 %% restored.
 
 %% Non-sensical (i.e., stripped-down) program that sends the analysis
-%% into an infinite loop. The #we.es field was originally a gb_trees:tree()
+%% into an  loop. The #we.es field was originally a gb_trees:tree()
 %% but the programmer declared it as an array in order to change it to
 %% that data type instead. In the file, there are two calls to function
 %% gb_trees:get/2 which seem to be the ones responsible for sending the
-%% analysis into an infinite loop. Currently, these calls are marked and
+%% analysis into an  loop. Currently, these calls are marked and
 %% have been changed to gbee_trees:get/2 in order to be able to see that
 %% the analysis works if these two calls are taken out of the picture.
 %%----------------------------------------------------------------------------

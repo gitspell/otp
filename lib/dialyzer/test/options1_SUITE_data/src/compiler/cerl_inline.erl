@@ -489,7 +489,7 @@ i_values(E, Ctxt, Ren, Env, S) ->
 %% -> e1 end'. As a special case, `let <v> = e0 in e1' is also
 %% equivalent to `apply fun (v) -> e0 (e1)'. However, for efficiency,
 %% and in order to allow the handling of `case' clauses to introduce new
-%% let-expressions without entering an infinite rewrite loop, we handle
+%% let-expressions without entering an  rewrite loop, we handle
 %% these directly.
 
 %%% %% Rewriting a `let' to an equivalent expression.
@@ -1606,7 +1606,7 @@ copy_1(R, Opnd, E, Ctxt, Env, S) ->
                             copy_inline(R, Opnd, E, Ctxt, Env, S);
                         true ->
                             %% Cyclic reference forced inlining to stop
-                            %% (avoiding infinite unfolding).
+                            %% (avoiding  unfolding).
                             residualize_var(R, S)
                     end;
                 _ ->
