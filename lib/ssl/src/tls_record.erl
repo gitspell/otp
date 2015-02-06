@@ -155,7 +155,7 @@ decode_cipher_text(#ssl_tls{type = Type, version = Version,
 					     sequence_number = Seq,
 					     security_parameters=
 						 #security_parameters{compression_algorithm = CompressAlg}
-					    } = ReadState0} = ConnnectionStates0, PaddingCheck) ->
+					    } = ReadState0} = ConnectionStates0, PaddingCheck) ->
     case ssl_record:decipher(Version, CipherFragment, ReadState0, PaddingCheck) of
 	{PlainFragment, Mac, ReadState1} ->
 	    MacHash = calc_mac_hash(Type, Version, PlainFragment, ReadState1),
@@ -163,11 +163,11 @@ decode_cipher_text(#ssl_tls{type = Type, version = Version,
 		true ->
 		    {Plain, CompressionS1} = ssl_record:uncompress(CompressAlg,
 								   PlainFragment, CompressionS0),
-		    ConnnectionStates = ConnnectionStates0#connection_states{
+		    ConnectionStates = ConnectionStates0#connection_states{
 					  current_read = ReadState1#connection_state{
 							   sequence_number = Seq + 1,
 							   compression_state = CompressionS1}},
-		    {CipherText#ssl_tls{fragment = Plain}, ConnnectionStates};
+		    {CipherText#ssl_tls{fragment = Plain}, ConnectionStates};
 		false ->
 			?ALERT_REC(?FATAL, ?BAD_RECORD_MAC)
 	    end;
